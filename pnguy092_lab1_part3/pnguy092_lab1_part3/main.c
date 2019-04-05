@@ -1,7 +1,7 @@
 /*
- * pnguy092_lab1_part2.c
+ * pnguy092_lab1_part3.c
  *
- * Created: 4/4/2019 9:16:32 AM
+ * Created: 4/5/2019 1:44:42 PM
  * Author : Phillip
  */ 
 
@@ -19,10 +19,15 @@ int main(void)
 	unsigned char tmpA2 = 0x00; // Temporary variable to hold the value of A
 	unsigned char tmpA3 = 0x00; // Temporary variable to hold the value of A
 	
+	
     while (1)
     {
 		//4 available spots
-		unsigned char cntavail = 0x04;
+		unsigned char full = 0x00;
+		unsigned char tmpC0 = 0x01;
+		unsigned char tmpC1 = 0x02;
+		unsigned char tmpC2 = 0x04;
+		unsigned char tmpC3 = 0x08;
 		
 		tmpA0 = PINA & 0x01;
 		tmpA1 = PINA & 0x02;
@@ -30,23 +35,28 @@ int main(void)
 		tmpA3 = PINA & 0x08;
 		
 		if(tmpA0 == 0x01){
-			cntavail--;
+			full++;
+			tmpC0 = 0x00;
 		}
 		if(tmpA1 == 0x02){
-			cntavail--;
+			full++;
+			tmpC1 = 0x00;
 		}
 		if(tmpA2 == 0x04){
-			cntavail--;
+			full++;
+			tmpC2 = 0x00;
 		}
 		if(tmpA3 == 0x08){
-			cntavail--;
+			full++;
+			tmpC3 = 0x00;
 		}
 		
-		/*
-		this outputs in binary how many spots
-		are left in the parking spaces
-		*/
-		PORTC = cntavail;
+		if(full == 0x04){
+			PORTC = 0xFF;
+		}
+		else{
+			PORTC = tmpC0 | tmpC1 | tmpC2 | tmpC3;	
+		}
 	  
 
     }
