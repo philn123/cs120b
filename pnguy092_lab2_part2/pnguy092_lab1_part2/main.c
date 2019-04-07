@@ -1,9 +1,12 @@
-/*
- * pnguy092_lab1_part2.c
- *
- * Created: 4/4/2019 9:16:32 AM
- * Author : Phillip
- */ 
+/* Partner 1 Name & E-mail: Phillip Nguyen & pnguy092@ucr.edu
+* Partner 2 Name & E-mail: Fangsheng Chao & fchao002@ucr.edu
+* Lab Section: 023
+* Assignment: Lab 2 Exercise 2
+*
+*
+* I acknowledge all content contained herein, excluding template or example
+* code, is my own original work.
+*/
 
 #include <avr/io.h>
 

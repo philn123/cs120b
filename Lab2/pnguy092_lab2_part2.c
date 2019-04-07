@@ -1,9 +1,12 @@
-/*
- * pnguy092_lab1_part3.c
- *
- * Created: 4/5/2019 1:44:42 PM
- * Author : Phillip
- */ 
+/* Partner 1 Name & E-mail: Phillip Nguyen & pnguy092@ucr.edu
+* Partner 2 Name & E-mail: Fangsheng Chao & fchao002@ucr.edu
+* Lab Section: 023
+* Assignment: Lab 2 Exercise 2
+*
+*
+* I acknowledge all content contained herein, excluding template or example
+* code, is my own original work.
+*/
 
 #include <avr/io.h>
 
@@ -19,15 +22,10 @@ int main(void)
 	unsigned char tmpA2 = 0x00; // Temporary variable to hold the value of A
 	unsigned char tmpA3 = 0x00; // Temporary variable to hold the value of A
 	
-	
     while (1)
     {
 		//4 available spots
-		unsigned char full = 0x00;
-		unsigned char tmpC0 = 0x01;
-		unsigned char tmpC1 = 0x02;
-		unsigned char tmpC2 = 0x04;
-		unsigned char tmpC3 = 0x08;
+		unsigned char cntavail = 0x04;
 		
 		tmpA0 = PINA & 0x01;
 		tmpA1 = PINA & 0x02;
@@ -35,28 +33,23 @@ int main(void)
 		tmpA3 = PINA & 0x08;
 		
 		if(tmpA0 == 0x01){
-			full++;
-			tmpC0 = 0x00;
+			cntavail--;
 		}
 		if(tmpA1 == 0x02){
-			full++;
-			tmpC1 = 0x00;
+			cntavail--;
 		}
 		if(tmpA2 == 0x04){
-			full++;
-			tmpC2 = 0x00;
+			cntavail--;
 		}
 		if(tmpA3 == 0x08){
-			full++;
-			tmpC3 = 0x00;
+			cntavail--;
 		}
 		
-		if(full == 0x04){
-			PORTC = 0xFF;
-		}
-		else{
-			PORTC = tmpC0 | tmpC1 | tmpC2 | tmpC3;	
-		}
+		/*
+		this outputs in binary how many spots
+		are left in the parking spaces
+		*/
+		PORTC = cntavail;
 	  
 
     }
