@@ -21,10 +21,12 @@ int main(void)
 	unsigned char tmpA1 = 0x00; // Temporary variable to hold the value of A
 	unsigned char tmpA2 = 0x00; // Temporary variable to hold the value of A
 	unsigned char tmpA3 = 0x00; // Temporary variable to hold the value of A
+	unsigned char full = 0x00;
 	
     while (1)
     {
 		//4 available spots
+		full = 0x00;
 		unsigned char cntavail = 0x04;
 		
 		tmpA0 = PINA & 0x01;
@@ -44,12 +46,15 @@ int main(void)
 		if(tmpA3 == 0x08){
 			cntavail--;
 		}
+		if(cntavail == 0x00){
+			full = 0x80;
+		}
 		
 		/*
 		this outputs in binary how many spots
 		are left in the parking spaces
 		*/
-		PORTC = cntavail;
+		PORTC = cntavail | full;
 	  
 
     }
