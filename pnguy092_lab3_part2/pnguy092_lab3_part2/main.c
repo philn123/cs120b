@@ -64,12 +64,7 @@ int main(void)
 		if(val <= 4){
 			output = SetBit(output, 6, 1);
 		}
-		if(GetBit(PINA, 4) == 1 && GetBit(PINA, 5) == 1 && GetBit(PINA, 6) != 1){
-			output = SetBit(output, 7, 1);
-		}
-		else{
-			output = SetBit(output, 7, 0);
-		}
+		
 		
 		PORTC = output;
 		
