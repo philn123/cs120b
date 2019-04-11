@@ -26,7 +26,8 @@ int main(void)
 	
     while (1) 
     {
-		unsigned char output = 0x00;
+		
+		unsigned char output = 0x01;
 		weight_sensor = PIND << 1;
 		unsigned char temp = PINB & 0x01;
 		weight_sensor = weight_sensor | temp;
@@ -36,11 +37,29 @@ int main(void)
 			
 		}
 		else if(weight_sensor > 5 && weight_sensor < 70){
-			output = SetBit(output, 1, 0);
+			//output = SetBit(output, 1, 0);
 			output = SetBit(output, 2, 1);
 		}
 		PORTB = output;
 		weight_sensor = 0x0000;
+		
+		
+		
+		/*
+		unsigned short temp = PIND << 1;
+		temp = temp | (PINB & 0x01);
+		if(temp >= 70){
+			PORTB = PORTB & 0xFB;
+			PORTB = PORTB | 0x02;
+		}
+		else if(temp >= 5){
+			PORTB =	PORTB & 0xFD;
+			PORTB = PORTB | 0x04;
+		}
+		else{
+			PORTB = PORTB & 0xF9;
+		}
+		*/
 		
     }
 }
