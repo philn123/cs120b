@@ -87,12 +87,27 @@ void Tick(){
             break;
         case LOCK:
             if((PINA & 0x87) == 0x80){ //if they keep holding then keep it here
-                state = LOCK;
+	            state = LOCK;
+            }
+            else if((PINA & 0x07) == 0x01){
+	            state = LOCK;
+            }
+            else if((PINA & 0x07) == 0x02){
+	            state = LOCK;
+            }
+            else if((PINA & 0x07) == 0x04){
+	            state = LOCK;
+            }
+            else if((PINA & 0x07) == 0x07){
+	            state = LOCK;
+            }
+            else if((PINA & 0x07) == 0x87){
+	            state = LOCK;
             }
             else{
-                state = START;
+	            state = START;
             }
-            break;
+			break;
             
         default:
             break;
@@ -123,7 +138,7 @@ void Tick(){
             PORTC = 0x04;
 			break;
         case LOCK:
-            PORTB = 0x05;
+            PORTB = 0x00;
             PORTC = LOCK;
 			break;
         default:

@@ -1,0 +1,1110 @@
+
+pnguy092_lab4_part4.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000630  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000005bc  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000002  00800100  00800100  00000630  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000630  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000660  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000028  00000000  00000000  000006a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000881  00000000  00000000  000006c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000007bd  00000000  00000000  00000f49  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000004da  00000000  00000000  00001706  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000054  00000000  00000000  00001be0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000425  00000000  00000000  00001c34  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000076  00000000  00000000  00002059  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000018  00000000  00000000  000020cf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	55 c0       	rjmp	.+170    	; 0xac <__ctors_end>
+   2:	00 00       	nop
+   4:	63 c0       	rjmp	.+198    	; 0xcc <__bad_interrupt>
+   6:	00 00       	nop
+   8:	61 c0       	rjmp	.+194    	; 0xcc <__bad_interrupt>
+   a:	00 00       	nop
+   c:	5f c0       	rjmp	.+190    	; 0xcc <__bad_interrupt>
+   e:	00 00       	nop
+  10:	5d c0       	rjmp	.+186    	; 0xcc <__bad_interrupt>
+  12:	00 00       	nop
+  14:	5b c0       	rjmp	.+182    	; 0xcc <__bad_interrupt>
+  16:	00 00       	nop
+  18:	59 c0       	rjmp	.+178    	; 0xcc <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	57 c0       	rjmp	.+174    	; 0xcc <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	55 c0       	rjmp	.+170    	; 0xcc <__bad_interrupt>
+  22:	00 00       	nop
+  24:	53 c0       	rjmp	.+166    	; 0xcc <__bad_interrupt>
+  26:	00 00       	nop
+  28:	51 c0       	rjmp	.+162    	; 0xcc <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	4f c0       	rjmp	.+158    	; 0xcc <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	4d c0       	rjmp	.+154    	; 0xcc <__bad_interrupt>
+  32:	00 00       	nop
+  34:	4b c0       	rjmp	.+150    	; 0xcc <__bad_interrupt>
+  36:	00 00       	nop
+  38:	49 c0       	rjmp	.+146    	; 0xcc <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	47 c0       	rjmp	.+142    	; 0xcc <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	45 c0       	rjmp	.+138    	; 0xcc <__bad_interrupt>
+  42:	00 00       	nop
+  44:	43 c0       	rjmp	.+134    	; 0xcc <__bad_interrupt>
+  46:	00 00       	nop
+  48:	41 c0       	rjmp	.+130    	; 0xcc <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	3f c0       	rjmp	.+126    	; 0xcc <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	3d c0       	rjmp	.+122    	; 0xcc <__bad_interrupt>
+  52:	00 00       	nop
+  54:	3b c0       	rjmp	.+118    	; 0xcc <__bad_interrupt>
+  56:	00 00       	nop
+  58:	39 c0       	rjmp	.+114    	; 0xcc <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	37 c0       	rjmp	.+110    	; 0xcc <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	35 c0       	rjmp	.+106    	; 0xcc <__bad_interrupt>
+  62:	00 00       	nop
+  64:	33 c0       	rjmp	.+102    	; 0xcc <__bad_interrupt>
+  66:	00 00       	nop
+  68:	31 c0       	rjmp	.+98     	; 0xcc <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	2f c0       	rjmp	.+94     	; 0xcc <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	2d c0       	rjmp	.+90     	; 0xcc <__bad_interrupt>
+  72:	00 00       	nop
+  74:	2b c0       	rjmp	.+86     	; 0xcc <__bad_interrupt>
+  76:	00 00       	nop
+  78:	29 c0       	rjmp	.+82     	; 0xcc <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	27 c0       	rjmp	.+78     	; 0xcc <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	25 c0       	rjmp	.+74     	; 0xcc <__bad_interrupt>
+  82:	00 00       	nop
+  84:	23 c0       	rjmp	.+70     	; 0xcc <__bad_interrupt>
+  86:	00 00       	nop
+  88:	21 c0       	rjmp	.+66     	; 0xcc <__bad_interrupt>
+  8a:	00 00       	nop
+  8c:	a5 00       	.word	0x00a5	; ????
+  8e:	ac 00       	.word	0x00ac	; ????
+  90:	d6 00       	.word	0x00d6	; ????
+  92:	ff 00       	.word	0x00ff	; ????
+  94:	5c 01       	movw	r10, r24
+  96:	86 01       	movw	r16, r12
+  98:	e7 01       	movw	r28, r14
+  9a:	10 02       	muls	r17, r16
+  9c:	71 02       	muls	r23, r17
+  9e:	7a 02       	muls	r23, r26
+  a0:	88 02       	muls	r24, r24
+  a2:	96 02       	muls	r25, r22
+  a4:	a4 02       	muls	r26, r20
+  a6:	af 02       	muls	r26, r31
+  a8:	b9 02       	muls	r27, r25
+  aa:	c3 02       	muls	r28, r19
+
+000000ac <__ctors_end>:
+  ac:	11 24       	eor	r1, r1
+  ae:	1f be       	out	0x3f, r1	; 63
+  b0:	cf ef       	ldi	r28, 0xFF	; 255
+  b2:	d0 e4       	ldi	r29, 0x40	; 64
+  b4:	de bf       	out	0x3e, r29	; 62
+  b6:	cd bf       	out	0x3d, r28	; 61
+
+000000b8 <__do_clear_bss>:
+  b8:	21 e0       	ldi	r18, 0x01	; 1
+  ba:	a0 e0       	ldi	r26, 0x00	; 0
+  bc:	b1 e0       	ldi	r27, 0x01	; 1
+  be:	01 c0       	rjmp	.+2      	; 0xc2 <.do_clear_bss_start>
+
+000000c0 <.do_clear_bss_loop>:
+  c0:	1d 92       	st	X+, r1
+
+000000c2 <.do_clear_bss_start>:
+  c2:	a2 30       	cpi	r26, 0x02	; 2
+  c4:	b2 07       	cpc	r27, r18
+  c6:	e1 f7       	brne	.-8      	; 0xc0 <.do_clear_bss_loop>
+  c8:	02 d0       	rcall	.+4      	; 0xce <main>
+  ca:	76 c2       	rjmp	.+1260   	; 0x5b8 <_exit>
+
+000000cc <__bad_interrupt>:
+  cc:	99 cf       	rjmp	.-206    	; 0x0 <__vectors>
+
+000000ce <main>:
+
+void Tick();
+
+
+int main(void)
+{
+  ce:	cf 93       	push	r28
+  d0:	df 93       	push	r29
+  d2:	cd b7       	in	r28, 0x3d	; 61
+  d4:	de b7       	in	r29, 0x3e	; 62
+	/* Replace with your application code */
+	DDRA = 0x00; PORTA = 0xFF;
+  d6:	81 e2       	ldi	r24, 0x21	; 33
+  d8:	90 e0       	ldi	r25, 0x00	; 0
+  da:	fc 01       	movw	r30, r24
+  dc:	10 82       	st	Z, r1
+  de:	82 e2       	ldi	r24, 0x22	; 34
+  e0:	90 e0       	ldi	r25, 0x00	; 0
+  e2:	2f ef       	ldi	r18, 0xFF	; 255
+  e4:	fc 01       	movw	r30, r24
+  e6:	20 83       	st	Z, r18
+	DDRB = 0xFF; PORTB = 0x00;
+  e8:	84 e2       	ldi	r24, 0x24	; 36
+  ea:	90 e0       	ldi	r25, 0x00	; 0
+  ec:	2f ef       	ldi	r18, 0xFF	; 255
+  ee:	fc 01       	movw	r30, r24
+  f0:	20 83       	st	Z, r18
+  f2:	85 e2       	ldi	r24, 0x25	; 37
+  f4:	90 e0       	ldi	r25, 0x00	; 0
+  f6:	fc 01       	movw	r30, r24
+  f8:	10 82       	st	Z, r1
+	DDRC = 0xFF; PORTC = 0x00;
+  fa:	87 e2       	ldi	r24, 0x27	; 39
+  fc:	90 e0       	ldi	r25, 0x00	; 0
+  fe:	2f ef       	ldi	r18, 0xFF	; 255
+ 100:	fc 01       	movw	r30, r24
+ 102:	20 83       	st	Z, r18
+ 104:	88 e2       	ldi	r24, 0x28	; 40
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	fc 01       	movw	r30, r24
+ 10a:	10 82       	st	Z, r1
+	state = INIT;
+ 10c:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <_edata+0x1>
+ 110:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
+	while (1)
+	{
+		Tick();
+ 114:	01 d0       	rcall	.+2      	; 0x118 <Tick>
+	}
+ 116:	fe cf       	rjmp	.-4      	; 0x114 <main+0x46>
+
+00000118 <Tick>:
+}
+
+void Tick(){
+ 118:	cf 93       	push	r28
+ 11a:	df 93       	push	r29
+ 11c:	cd b7       	in	r28, 0x3d	; 61
+ 11e:	de b7       	in	r29, 0x3e	; 62
+	switch(state){ //transitions
+ 120:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 124:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 128:	cc 01       	movw	r24, r24
+ 12a:	a0 e0       	ldi	r26, 0x00	; 0
+ 12c:	b0 e0       	ldi	r27, 0x00	; 0
+ 12e:	40 e0       	ldi	r20, 0x00	; 0
+ 130:	50 e0       	ldi	r21, 0x00	; 0
+ 132:	27 e0       	ldi	r18, 0x07	; 7
+ 134:	30 e0       	ldi	r19, 0x00	; 0
+ 136:	84 1b       	sub	r24, r20
+ 138:	95 0b       	sbc	r25, r21
+ 13a:	28 17       	cp	r18, r24
+ 13c:	39 07       	cpc	r19, r25
+ 13e:	08 f4       	brcc	.+2      	; 0x142 <Tick+0x2a>
+ 140:	ba c1       	rjmp	.+884    	; 0x4b6 <__LOCK_REGION_LENGTH__+0xb6>
+ 142:	8a 5b       	subi	r24, 0xBA	; 186
+ 144:	9f 4f       	sbci	r25, 0xFF	; 255
+ 146:	fc 01       	movw	r30, r24
+ 148:	2e c2       	rjmp	.+1116   	; 0x5a6 <__tablejump2__>
+		case INIT:
+		state = START;
+ 14a:	81 e0       	ldi	r24, 0x01	; 1
+ 14c:	90 e0       	ldi	r25, 0x00	; 0
+ 14e:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 152:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+		break;
+ 156:	b0 c1       	rjmp	.+864    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case START:
+			if((PINA & 0x07) == 0x04){
+ 158:	80 e2       	ldi	r24, 0x20	; 32
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	fc 01       	movw	r30, r24
+ 15e:	80 81       	ld	r24, Z
+ 160:	88 2f       	mov	r24, r24
+ 162:	90 e0       	ldi	r25, 0x00	; 0
+ 164:	87 70       	andi	r24, 0x07	; 7
+ 166:	99 27       	eor	r25, r25
+ 168:	04 97       	sbiw	r24, 0x04	; 4
+ 16a:	39 f4       	brne	.+14     	; 0x17a <Tick+0x62>
+				state = WAIT;
+ 16c:	82 e0       	ldi	r24, 0x02	; 2
+ 16e:	90 e0       	ldi	r25, 0x00	; 0
+ 170:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 174:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = LOCK;
+			}
+			else{
+				state = START;
+			}
+			break;
+ 178:	9f c1       	rjmp	.+830    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		break;
+		case START:
+			if((PINA & 0x07) == 0x04){
+				state = WAIT;
+			}
+			else if((PINA & 0x87) == 0x80){
+ 17a:	80 e2       	ldi	r24, 0x20	; 32
+ 17c:	90 e0       	ldi	r25, 0x00	; 0
+ 17e:	fc 01       	movw	r30, r24
+ 180:	80 81       	ld	r24, Z
+ 182:	88 2f       	mov	r24, r24
+ 184:	90 e0       	ldi	r25, 0x00	; 0
+ 186:	87 78       	andi	r24, 0x87	; 135
+ 188:	99 27       	eor	r25, r25
+ 18a:	80 38       	cpi	r24, 0x80	; 128
+ 18c:	91 05       	cpc	r25, r1
+ 18e:	39 f4       	brne	.+14     	; 0x19e <Tick+0x86>
+				state = LOCK;
+ 190:	85 e0       	ldi	r24, 0x05	; 5
+ 192:	90 e0       	ldi	r25, 0x00	; 0
+ 194:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 198:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = START;
+			}
+			break;
+ 19c:	8d c1       	rjmp	.+794    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			}
+			else if((PINA & 0x87) == 0x80){
+				state = LOCK;
+			}
+			else{
+				state = START;
+ 19e:	81 e0       	ldi	r24, 0x01	; 1
+ 1a0:	90 e0       	ldi	r25, 0x00	; 0
+ 1a2:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 1a6:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			break;
+ 1aa:	86 c1       	rjmp	.+780    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case WAIT:
+			if((PINA & 0x07) == 0x04){
+ 1ac:	80 e2       	ldi	r24, 0x20	; 32
+ 1ae:	90 e0       	ldi	r25, 0x00	; 0
+ 1b0:	fc 01       	movw	r30, r24
+ 1b2:	80 81       	ld	r24, Z
+ 1b4:	88 2f       	mov	r24, r24
+ 1b6:	90 e0       	ldi	r25, 0x00	; 0
+ 1b8:	87 70       	andi	r24, 0x07	; 7
+ 1ba:	99 27       	eor	r25, r25
+ 1bc:	04 97       	sbiw	r24, 0x04	; 4
+ 1be:	39 f4       	brne	.+14     	; 0x1ce <Tick+0xb6>
+				state = WAIT;
+ 1c0:	82 e0       	ldi	r24, 0x02	; 2
+ 1c2:	90 e0       	ldi	r25, 0x00	; 0
+ 1c4:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 1c8:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = START;
+				
+			}
+		break;
+ 1cc:	75 c1       	rjmp	.+746    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case WAIT:
+			if((PINA & 0x07) == 0x04){
+				state = WAIT;
+				
+			}
+			else if((PINA & 0x07) == 0x00){
+ 1ce:	80 e2       	ldi	r24, 0x20	; 32
+ 1d0:	90 e0       	ldi	r25, 0x00	; 0
+ 1d2:	fc 01       	movw	r30, r24
+ 1d4:	80 81       	ld	r24, Z
+ 1d6:	88 2f       	mov	r24, r24
+ 1d8:	90 e0       	ldi	r25, 0x00	; 0
+ 1da:	87 70       	andi	r24, 0x07	; 7
+ 1dc:	99 27       	eor	r25, r25
+ 1de:	89 2b       	or	r24, r25
+ 1e0:	39 f4       	brne	.+14     	; 0x1f0 <Tick+0xd8>
+				state = HASH;
+ 1e2:	83 e0       	ldi	r24, 0x03	; 3
+ 1e4:	90 e0       	ldi	r25, 0x00	; 0
+ 1e6:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 1ea:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = START;
+				
+			}
+		break;
+ 1ee:	64 c1       	rjmp	.+712    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			else if((PINA & 0x07) == 0x00){
+				state = HASH;
+				
+			}
+			else{
+				state = START;
+ 1f0:	81 e0       	ldi	r24, 0x01	; 1
+ 1f2:	90 e0       	ldi	r25, 0x00	; 0
+ 1f4:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 1f8:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				
+			}
+		break;
+ 1fc:	5d c1       	rjmp	.+698    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case HASH:
+			if((PINA & 0x07) == 0x02){
+ 1fe:	80 e2       	ldi	r24, 0x20	; 32
+ 200:	90 e0       	ldi	r25, 0x00	; 0
+ 202:	fc 01       	movw	r30, r24
+ 204:	80 81       	ld	r24, Z
+ 206:	88 2f       	mov	r24, r24
+ 208:	90 e0       	ldi	r25, 0x00	; 0
+ 20a:	87 70       	andi	r24, 0x07	; 7
+ 20c:	99 27       	eor	r25, r25
+ 20e:	02 97       	sbiw	r24, 0x02	; 2
+ 210:	39 f4       	brne	.+14     	; 0x220 <Tick+0x108>
+				state = UNLOCKED;
+ 212:	84 e0       	ldi	r24, 0x04	; 4
+ 214:	90 e0       	ldi	r25, 0x00	; 0
+ 216:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 21a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = START;
+			}
+			else{
+				state = HASH;
+			}
+			break;
+ 21e:	4c c1       	rjmp	.+664    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		break;
+		case HASH:
+			if((PINA & 0x07) == 0x02){
+				state = UNLOCKED;
+			}
+			else if((PINA & 0x87) == 0x80){
+ 220:	80 e2       	ldi	r24, 0x20	; 32
+ 222:	90 e0       	ldi	r25, 0x00	; 0
+ 224:	fc 01       	movw	r30, r24
+ 226:	80 81       	ld	r24, Z
+ 228:	88 2f       	mov	r24, r24
+ 22a:	90 e0       	ldi	r25, 0x00	; 0
+ 22c:	87 78       	andi	r24, 0x87	; 135
+ 22e:	99 27       	eor	r25, r25
+ 230:	80 38       	cpi	r24, 0x80	; 128
+ 232:	91 05       	cpc	r25, r1
+ 234:	39 f4       	brne	.+14     	; 0x244 <Tick+0x12c>
+				state = LOCK;
+ 236:	85 e0       	ldi	r24, 0x05	; 5
+ 238:	90 e0       	ldi	r25, 0x00	; 0
+ 23a:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 23e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = START;
+			}
+			else{
+				state = HASH;
+			}
+			break;
+ 242:	3a c1       	rjmp	.+628    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = UNLOCKED;
+			}
+			else if((PINA & 0x87) == 0x80){
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x01){ //if they hit x
+ 244:	80 e2       	ldi	r24, 0x20	; 32
+ 246:	90 e0       	ldi	r25, 0x00	; 0
+ 248:	fc 01       	movw	r30, r24
+ 24a:	80 81       	ld	r24, Z
+ 24c:	88 2f       	mov	r24, r24
+ 24e:	90 e0       	ldi	r25, 0x00	; 0
+ 250:	87 70       	andi	r24, 0x07	; 7
+ 252:	99 27       	eor	r25, r25
+ 254:	01 97       	sbiw	r24, 0x01	; 1
+ 256:	39 f4       	brne	.+14     	; 0x266 <Tick+0x14e>
+				state = START;
+ 258:	81 e0       	ldi	r24, 0x01	; 1
+ 25a:	90 e0       	ldi	r25, 0x00	; 0
+ 25c:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 260:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = START;
+			}
+			else{
+				state = HASH;
+			}
+			break;
+ 264:	29 c1       	rjmp	.+594    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x01){ //if they hit x
+				state = START;
+			}
+			else if((PINA & 0x07) == 0x03){ //if they hit x & y
+ 266:	80 e2       	ldi	r24, 0x20	; 32
+ 268:	90 e0       	ldi	r25, 0x00	; 0
+ 26a:	fc 01       	movw	r30, r24
+ 26c:	80 81       	ld	r24, Z
+ 26e:	88 2f       	mov	r24, r24
+ 270:	90 e0       	ldi	r25, 0x00	; 0
+ 272:	87 70       	andi	r24, 0x07	; 7
+ 274:	99 27       	eor	r25, r25
+ 276:	03 97       	sbiw	r24, 0x03	; 3
+ 278:	39 f4       	brne	.+14     	; 0x288 <Tick+0x170>
+				state = START;
+ 27a:	81 e0       	ldi	r24, 0x01	; 1
+ 27c:	90 e0       	ldi	r25, 0x00	; 0
+ 27e:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 282:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = START;
+			}
+			else{
+				state = HASH;
+			}
+			break;
+ 286:	18 c1       	rjmp	.+560    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = START;
+			}
+			else if((PINA & 0x07) == 0x03){ //if they hit x & y
+				state = START;
+			}
+			else if((PINA & 0x07) == 0x07){ //if they hit all 3
+ 288:	80 e2       	ldi	r24, 0x20	; 32
+ 28a:	90 e0       	ldi	r25, 0x00	; 0
+ 28c:	fc 01       	movw	r30, r24
+ 28e:	80 81       	ld	r24, Z
+ 290:	88 2f       	mov	r24, r24
+ 292:	90 e0       	ldi	r25, 0x00	; 0
+ 294:	87 70       	andi	r24, 0x07	; 7
+ 296:	99 27       	eor	r25, r25
+ 298:	07 97       	sbiw	r24, 0x07	; 7
+ 29a:	39 f4       	brne	.+14     	; 0x2aa <Tick+0x192>
+				state = START;
+ 29c:	81 e0       	ldi	r24, 0x01	; 1
+ 29e:	90 e0       	ldi	r25, 0x00	; 0
+ 2a0:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 2a4:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = HASH;
+			}
+			break;
+ 2a8:	07 c1       	rjmp	.+526    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			}
+			else if((PINA & 0x07) == 0x07){ //if they hit all 3
+				state = START;
+			}
+			else{
+				state = HASH;
+ 2aa:	83 e0       	ldi	r24, 0x03	; 3
+ 2ac:	90 e0       	ldi	r25, 0x00	; 0
+ 2ae:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 2b2:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			break;
+ 2b6:	00 c1       	rjmp	.+512    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case UNLOCKED:
+			if((PINA & 0x87) == 0x80){
+ 2b8:	80 e2       	ldi	r24, 0x20	; 32
+ 2ba:	90 e0       	ldi	r25, 0x00	; 0
+ 2bc:	fc 01       	movw	r30, r24
+ 2be:	80 81       	ld	r24, Z
+ 2c0:	88 2f       	mov	r24, r24
+ 2c2:	90 e0       	ldi	r25, 0x00	; 0
+ 2c4:	87 78       	andi	r24, 0x87	; 135
+ 2c6:	99 27       	eor	r25, r25
+ 2c8:	80 38       	cpi	r24, 0x80	; 128
+ 2ca:	91 05       	cpc	r25, r1
+ 2cc:	39 f4       	brne	.+14     	; 0x2dc <Tick+0x1c4>
+				state = LOCK;
+ 2ce:	85 e0       	ldi	r24, 0x05	; 5
+ 2d0:	90 e0       	ldi	r25, 0x00	; 0
+ 2d2:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 2d6:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = WAIT2;
+			}
+			else{
+				state = UNLOCKED;
+			}
+			break;
+ 2da:	ee c0       	rjmp	.+476    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			break;
+		case UNLOCKED:
+			if((PINA & 0x87) == 0x80){
+				state = LOCK;
+			}
+			else if((PINA & 0x87) == 0x04){
+ 2dc:	80 e2       	ldi	r24, 0x20	; 32
+ 2de:	90 e0       	ldi	r25, 0x00	; 0
+ 2e0:	fc 01       	movw	r30, r24
+ 2e2:	80 81       	ld	r24, Z
+ 2e4:	88 2f       	mov	r24, r24
+ 2e6:	90 e0       	ldi	r25, 0x00	; 0
+ 2e8:	87 78       	andi	r24, 0x87	; 135
+ 2ea:	99 27       	eor	r25, r25
+ 2ec:	04 97       	sbiw	r24, 0x04	; 4
+ 2ee:	39 f4       	brne	.+14     	; 0x2fe <Tick+0x1e6>
+				state = WAIT2;
+ 2f0:	86 e0       	ldi	r24, 0x06	; 6
+ 2f2:	90 e0       	ldi	r25, 0x00	; 0
+ 2f4:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 2f8:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = UNLOCKED;
+			}
+			break;
+ 2fc:	dd c0       	rjmp	.+442    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			}
+			else if((PINA & 0x87) == 0x04){
+				state = WAIT2;
+			}
+			else{
+				state = UNLOCKED;
+ 2fe:	84 e0       	ldi	r24, 0x04	; 4
+ 300:	90 e0       	ldi	r25, 0x00	; 0
+ 302:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 306:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			break;
+ 30a:	d6 c0       	rjmp	.+428    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		
+		case LOCK:
+			if((PINA & 0x87) == 0x80){ //if they keep holding then keep it here
+ 30c:	80 e2       	ldi	r24, 0x20	; 32
+ 30e:	90 e0       	ldi	r25, 0x00	; 0
+ 310:	fc 01       	movw	r30, r24
+ 312:	80 81       	ld	r24, Z
+ 314:	88 2f       	mov	r24, r24
+ 316:	90 e0       	ldi	r25, 0x00	; 0
+ 318:	87 78       	andi	r24, 0x87	; 135
+ 31a:	99 27       	eor	r25, r25
+ 31c:	80 38       	cpi	r24, 0x80	; 128
+ 31e:	91 05       	cpc	r25, r1
+ 320:	39 f4       	brne	.+14     	; 0x330 <Tick+0x218>
+				state = LOCK;
+ 322:	85 e0       	ldi	r24, 0x05	; 5
+ 324:	90 e0       	ldi	r25, 0x00	; 0
+ 326:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 32a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = LOCK;
+			}
+			else{
+				state = START;
+			}
+		    break;
+ 32e:	c4 c0       	rjmp	.+392    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		
+		case LOCK:
+			if((PINA & 0x87) == 0x80){ //if they keep holding then keep it here
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x01){
+ 330:	80 e2       	ldi	r24, 0x20	; 32
+ 332:	90 e0       	ldi	r25, 0x00	; 0
+ 334:	fc 01       	movw	r30, r24
+ 336:	80 81       	ld	r24, Z
+ 338:	88 2f       	mov	r24, r24
+ 33a:	90 e0       	ldi	r25, 0x00	; 0
+ 33c:	87 70       	andi	r24, 0x07	; 7
+ 33e:	99 27       	eor	r25, r25
+ 340:	01 97       	sbiw	r24, 0x01	; 1
+ 342:	39 f4       	brne	.+14     	; 0x352 <Tick+0x23a>
+				state = LOCK;
+ 344:	85 e0       	ldi	r24, 0x05	; 5
+ 346:	90 e0       	ldi	r25, 0x00	; 0
+ 348:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 34c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = LOCK;
+			}
+			else{
+				state = START;
+			}
+		    break;
+ 350:	b3 c0       	rjmp	.+358    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x01){
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x02){
+ 352:	80 e2       	ldi	r24, 0x20	; 32
+ 354:	90 e0       	ldi	r25, 0x00	; 0
+ 356:	fc 01       	movw	r30, r24
+ 358:	80 81       	ld	r24, Z
+ 35a:	88 2f       	mov	r24, r24
+ 35c:	90 e0       	ldi	r25, 0x00	; 0
+ 35e:	87 70       	andi	r24, 0x07	; 7
+ 360:	99 27       	eor	r25, r25
+ 362:	02 97       	sbiw	r24, 0x02	; 2
+ 364:	39 f4       	brne	.+14     	; 0x374 <Tick+0x25c>
+				state = LOCK;
+ 366:	85 e0       	ldi	r24, 0x05	; 5
+ 368:	90 e0       	ldi	r25, 0x00	; 0
+ 36a:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 36e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = LOCK;
+			}
+			else{
+				state = START;
+			}
+		    break;
+ 372:	a2 c0       	rjmp	.+324    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x02){
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x04){
+ 374:	80 e2       	ldi	r24, 0x20	; 32
+ 376:	90 e0       	ldi	r25, 0x00	; 0
+ 378:	fc 01       	movw	r30, r24
+ 37a:	80 81       	ld	r24, Z
+ 37c:	88 2f       	mov	r24, r24
+ 37e:	90 e0       	ldi	r25, 0x00	; 0
+ 380:	87 70       	andi	r24, 0x07	; 7
+ 382:	99 27       	eor	r25, r25
+ 384:	04 97       	sbiw	r24, 0x04	; 4
+ 386:	39 f4       	brne	.+14     	; 0x396 <Tick+0x27e>
+				state = LOCK;
+ 388:	85 e0       	ldi	r24, 0x05	; 5
+ 38a:	90 e0       	ldi	r25, 0x00	; 0
+ 38c:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 390:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = LOCK;
+			}
+			else{
+				state = START;
+			}
+		    break;
+ 394:	91 c0       	rjmp	.+290    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x04){
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x07){
+ 396:	80 e2       	ldi	r24, 0x20	; 32
+ 398:	90 e0       	ldi	r25, 0x00	; 0
+ 39a:	fc 01       	movw	r30, r24
+ 39c:	80 81       	ld	r24, Z
+ 39e:	88 2f       	mov	r24, r24
+ 3a0:	90 e0       	ldi	r25, 0x00	; 0
+ 3a2:	87 70       	andi	r24, 0x07	; 7
+ 3a4:	99 27       	eor	r25, r25
+ 3a6:	07 97       	sbiw	r24, 0x07	; 7
+ 3a8:	39 f4       	brne	.+14     	; 0x3b8 <Tick+0x2a0>
+				state = LOCK;
+ 3aa:	85 e0       	ldi	r24, 0x05	; 5
+ 3ac:	90 e0       	ldi	r25, 0x00	; 0
+ 3ae:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 3b2:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = LOCK;
+			}
+			else{
+				state = START;
+			}
+		    break;
+ 3b6:	80 c0       	rjmp	.+256    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x07){
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x87){
+ 3b8:	80 e2       	ldi	r24, 0x20	; 32
+ 3ba:	90 e0       	ldi	r25, 0x00	; 0
+ 3bc:	fc 01       	movw	r30, r24
+ 3be:	80 81       	ld	r24, Z
+				state = LOCK;
+			}
+			else{
+				state = START;
+ 3c0:	81 e0       	ldi	r24, 0x01	; 1
+ 3c2:	90 e0       	ldi	r25, 0x00	; 0
+ 3c4:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 3c8:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+		    break;
+ 3cc:	75 c0       	rjmp	.+234    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case WAIT2:
+			if((PINA & 0x07) == 0x04){
+ 3ce:	80 e2       	ldi	r24, 0x20	; 32
+ 3d0:	90 e0       	ldi	r25, 0x00	; 0
+ 3d2:	fc 01       	movw	r30, r24
+ 3d4:	80 81       	ld	r24, Z
+ 3d6:	88 2f       	mov	r24, r24
+ 3d8:	90 e0       	ldi	r25, 0x00	; 0
+ 3da:	87 70       	andi	r24, 0x07	; 7
+ 3dc:	99 27       	eor	r25, r25
+ 3de:	04 97       	sbiw	r24, 0x04	; 4
+ 3e0:	39 f4       	brne	.+14     	; 0x3f0 <Tick+0x2d8>
+				state = WAIT2;
+ 3e2:	86 e0       	ldi	r24, 0x06	; 6
+ 3e4:	90 e0       	ldi	r25, 0x00	; 0
+ 3e6:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 3ea:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = UNLOCKED;
+				
+			}
+			break;
+ 3ee:	64 c0       	rjmp	.+200    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case WAIT2:
+			if((PINA & 0x07) == 0x04){
+				state = WAIT2;
+				
+			}
+			else if((PINA & 0x07) == 0x00){
+ 3f0:	80 e2       	ldi	r24, 0x20	; 32
+ 3f2:	90 e0       	ldi	r25, 0x00	; 0
+ 3f4:	fc 01       	movw	r30, r24
+ 3f6:	80 81       	ld	r24, Z
+ 3f8:	88 2f       	mov	r24, r24
+ 3fa:	90 e0       	ldi	r25, 0x00	; 0
+ 3fc:	87 70       	andi	r24, 0x07	; 7
+ 3fe:	99 27       	eor	r25, r25
+ 400:	89 2b       	or	r24, r25
+ 402:	39 f4       	brne	.+14     	; 0x412 <__LOCK_REGION_LENGTH__+0x12>
+				state = LOCK2;
+ 404:	87 e0       	ldi	r24, 0x07	; 7
+ 406:	90 e0       	ldi	r25, 0x00	; 0
+ 408:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 40c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = UNLOCKED;
+				
+			}
+			break;
+ 410:	53 c0       	rjmp	.+166    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			else if((PINA & 0x07) == 0x00){
+				state = LOCK2;
+				
+			}
+			else{
+				state = UNLOCKED;
+ 412:	84 e0       	ldi	r24, 0x04	; 4
+ 414:	90 e0       	ldi	r25, 0x00	; 0
+ 416:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 41a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				
+			}
+			break;
+ 41e:	4c c0       	rjmp	.+152    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		case LOCK2:
+			if((PINA & 0x07) == 0x02){
+ 420:	80 e2       	ldi	r24, 0x20	; 32
+ 422:	90 e0       	ldi	r25, 0x00	; 0
+ 424:	fc 01       	movw	r30, r24
+ 426:	80 81       	ld	r24, Z
+ 428:	88 2f       	mov	r24, r24
+ 42a:	90 e0       	ldi	r25, 0x00	; 0
+ 42c:	87 70       	andi	r24, 0x07	; 7
+ 42e:	99 27       	eor	r25, r25
+ 430:	02 97       	sbiw	r24, 0x02	; 2
+ 432:	39 f4       	brne	.+14     	; 0x442 <__LOCK_REGION_LENGTH__+0x42>
+				state = LOCK;
+ 434:	85 e0       	ldi	r24, 0x05	; 5
+ 436:	90 e0       	ldi	r25, 0x00	; 0
+ 438:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 43c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = UNLOCKED;
+			}
+			else{
+				state = LOCK2;
+			}
+			break;
+ 440:	3b c0       	rjmp	.+118    	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			break;
+		case LOCK2:
+			if((PINA & 0x07) == 0x02){
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x03){
+ 442:	80 e2       	ldi	r24, 0x20	; 32
+ 444:	90 e0       	ldi	r25, 0x00	; 0
+ 446:	fc 01       	movw	r30, r24
+ 448:	80 81       	ld	r24, Z
+ 44a:	88 2f       	mov	r24, r24
+ 44c:	90 e0       	ldi	r25, 0x00	; 0
+ 44e:	87 70       	andi	r24, 0x07	; 7
+ 450:	99 27       	eor	r25, r25
+ 452:	03 97       	sbiw	r24, 0x03	; 3
+ 454:	39 f4       	brne	.+14     	; 0x464 <__LOCK_REGION_LENGTH__+0x64>
+				state = UNLOCKED;
+ 456:	84 e0       	ldi	r24, 0x04	; 4
+ 458:	90 e0       	ldi	r25, 0x00	; 0
+ 45a:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 45e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = UNLOCKED;
+			}
+			else{
+				state = LOCK2;
+			}
+			break;
+ 462:	2a c0       	rjmp	.+84     	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = LOCK;
+			}
+			else if((PINA & 0x07) == 0x03){
+				state = UNLOCKED;
+			}
+			else if((PINA & 0x07) == 0x01){
+ 464:	80 e2       	ldi	r24, 0x20	; 32
+ 466:	90 e0       	ldi	r25, 0x00	; 0
+ 468:	fc 01       	movw	r30, r24
+ 46a:	80 81       	ld	r24, Z
+ 46c:	88 2f       	mov	r24, r24
+ 46e:	90 e0       	ldi	r25, 0x00	; 0
+ 470:	87 70       	andi	r24, 0x07	; 7
+ 472:	99 27       	eor	r25, r25
+ 474:	01 97       	sbiw	r24, 0x01	; 1
+ 476:	39 f4       	brne	.+14     	; 0x486 <__LOCK_REGION_LENGTH__+0x86>
+				state = UNLOCKED;
+ 478:	84 e0       	ldi	r24, 0x04	; 4
+ 47a:	90 e0       	ldi	r25, 0x00	; 0
+ 47c:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 480:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+				state = UNLOCKED;
+			}
+			else{
+				state = LOCK2;
+			}
+			break;
+ 484:	19 c0       	rjmp	.+50     	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+				state = UNLOCKED;
+			}
+			else if((PINA & 0x07) == 0x01){
+				state = UNLOCKED;
+			}
+			else if((PINA & 0x07) == 0x07){
+ 486:	80 e2       	ldi	r24, 0x20	; 32
+ 488:	90 e0       	ldi	r25, 0x00	; 0
+ 48a:	fc 01       	movw	r30, r24
+ 48c:	80 81       	ld	r24, Z
+ 48e:	88 2f       	mov	r24, r24
+ 490:	90 e0       	ldi	r25, 0x00	; 0
+ 492:	87 70       	andi	r24, 0x07	; 7
+ 494:	99 27       	eor	r25, r25
+ 496:	07 97       	sbiw	r24, 0x07	; 7
+ 498:	39 f4       	brne	.+14     	; 0x4a8 <__LOCK_REGION_LENGTH__+0xa8>
+				state = UNLOCKED;
+ 49a:	84 e0       	ldi	r24, 0x04	; 4
+ 49c:	90 e0       	ldi	r25, 0x00	; 0
+ 49e:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 4a2:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			else{
+				state = LOCK2;
+			}
+			break;
+ 4a6:	08 c0       	rjmp	.+16     	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			}
+			else if((PINA & 0x07) == 0x07){
+				state = UNLOCKED;
+			}
+			else{
+				state = LOCK2;
+ 4a8:	87 e0       	ldi	r24, 0x07	; 7
+ 4aa:	90 e0       	ldi	r25, 0x00	; 0
+ 4ac:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 4b0:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+			}
+			break;
+ 4b4:	01 c0       	rjmp	.+2      	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+			
+		
+		default:
+		break;
+ 4b6:	00 00       	nop
+		
+		
+		
+	}
+	
+	switch(state){ //actions
+ 4b8:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 4bc:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 4c0:	cc 01       	movw	r24, r24
+ 4c2:	a0 e0       	ldi	r26, 0x00	; 0
+ 4c4:	b0 e0       	ldi	r27, 0x00	; 0
+ 4c6:	40 e0       	ldi	r20, 0x00	; 0
+ 4c8:	50 e0       	ldi	r21, 0x00	; 0
+ 4ca:	27 e0       	ldi	r18, 0x07	; 7
+ 4cc:	30 e0       	ldi	r19, 0x00	; 0
+ 4ce:	84 1b       	sub	r24, r20
+ 4d0:	95 0b       	sbc	r25, r21
+ 4d2:	28 17       	cp	r18, r24
+ 4d4:	39 07       	cpc	r19, r25
+ 4d6:	08 f4       	brcc	.+2      	; 0x4da <__LOCK_REGION_LENGTH__+0xda>
+ 4d8:	61 c0       	rjmp	.+194    	; 0x59c <__LOCK_REGION_LENGTH__+0x19c>
+ 4da:	82 5b       	subi	r24, 0xB2	; 178
+ 4dc:	9f 4f       	sbci	r25, 0xFF	; 255
+ 4de:	fc 01       	movw	r30, r24
+ 4e0:	62 c0       	rjmp	.+196    	; 0x5a6 <__tablejump2__>
+		case INIT:
+			PORTC = 0x00;
+ 4e2:	88 e2       	ldi	r24, 0x28	; 40
+ 4e4:	90 e0       	ldi	r25, 0x00	; 0
+ 4e6:	fc 01       	movw	r30, r24
+ 4e8:	10 82       	st	Z, r1
+			PORTB = 0x00;
+ 4ea:	85 e2       	ldi	r24, 0x25	; 37
+ 4ec:	90 e0       	ldi	r25, 0x00	; 0
+ 4ee:	fc 01       	movw	r30, r24
+ 4f0:	10 82       	st	Z, r1
+			break;
+ 4f2:	55 c0       	rjmp	.+170    	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+		case START:
+			PORTC = 0x01;
+ 4f4:	88 e2       	ldi	r24, 0x28	; 40
+ 4f6:	90 e0       	ldi	r25, 0x00	; 0
+ 4f8:	21 e0       	ldi	r18, 0x01	; 1
+ 4fa:	fc 01       	movw	r30, r24
+ 4fc:	20 83       	st	Z, r18
+			PORTB = PORTB;
+ 4fe:	85 e2       	ldi	r24, 0x25	; 37
+ 500:	90 e0       	ldi	r25, 0x00	; 0
+ 502:	25 e2       	ldi	r18, 0x25	; 37
+ 504:	30 e0       	ldi	r19, 0x00	; 0
+ 506:	f9 01       	movw	r30, r18
+ 508:	20 81       	ld	r18, Z
+ 50a:	fc 01       	movw	r30, r24
+ 50c:	20 83       	st	Z, r18
+			break;
+ 50e:	47 c0       	rjmp	.+142    	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+		case WAIT:
+			PORTC = 0x02;
+ 510:	88 e2       	ldi	r24, 0x28	; 40
+ 512:	90 e0       	ldi	r25, 0x00	; 0
+ 514:	22 e0       	ldi	r18, 0x02	; 2
+ 516:	fc 01       	movw	r30, r24
+ 518:	20 83       	st	Z, r18
+			PORTB = PORTB;
+ 51a:	85 e2       	ldi	r24, 0x25	; 37
+ 51c:	90 e0       	ldi	r25, 0x00	; 0
+ 51e:	25 e2       	ldi	r18, 0x25	; 37
+ 520:	30 e0       	ldi	r19, 0x00	; 0
+ 522:	f9 01       	movw	r30, r18
+ 524:	20 81       	ld	r18, Z
+ 526:	fc 01       	movw	r30, r24
+ 528:	20 83       	st	Z, r18
+			break;
+ 52a:	39 c0       	rjmp	.+114    	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+		case HASH:
+			PORTC = 0x03;
+ 52c:	88 e2       	ldi	r24, 0x28	; 40
+ 52e:	90 e0       	ldi	r25, 0x00	; 0
+ 530:	23 e0       	ldi	r18, 0x03	; 3
+ 532:	fc 01       	movw	r30, r24
+ 534:	20 83       	st	Z, r18
+			PORTB = PORTB;
+ 536:	85 e2       	ldi	r24, 0x25	; 37
+ 538:	90 e0       	ldi	r25, 0x00	; 0
+ 53a:	25 e2       	ldi	r18, 0x25	; 37
+ 53c:	30 e0       	ldi	r19, 0x00	; 0
+ 53e:	f9 01       	movw	r30, r18
+ 540:	20 81       	ld	r18, Z
+ 542:	fc 01       	movw	r30, r24
+ 544:	20 83       	st	Z, r18
+			break;
+ 546:	2b c0       	rjmp	.+86     	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+		case UNLOCKED:
+			PORTB = 0x01;
+ 548:	85 e2       	ldi	r24, 0x25	; 37
+ 54a:	90 e0       	ldi	r25, 0x00	; 0
+ 54c:	21 e0       	ldi	r18, 0x01	; 1
+ 54e:	fc 01       	movw	r30, r24
+ 550:	20 83       	st	Z, r18
+			PORTC = 0x04;
+ 552:	88 e2       	ldi	r24, 0x28	; 40
+ 554:	90 e0       	ldi	r25, 0x00	; 0
+ 556:	24 e0       	ldi	r18, 0x04	; 4
+ 558:	fc 01       	movw	r30, r24
+ 55a:	20 83       	st	Z, r18
+			break;
+ 55c:	20 c0       	rjmp	.+64     	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+		case LOCK:
+			PORTB = 0x00;
+ 55e:	85 e2       	ldi	r24, 0x25	; 37
+ 560:	90 e0       	ldi	r25, 0x00	; 0
+ 562:	fc 01       	movw	r30, r24
+ 564:	10 82       	st	Z, r1
+			PORTC = 0x05;
+ 566:	88 e2       	ldi	r24, 0x28	; 40
+ 568:	90 e0       	ldi	r25, 0x00	; 0
+ 56a:	25 e0       	ldi	r18, 0x05	; 5
+ 56c:	fc 01       	movw	r30, r24
+ 56e:	20 83       	st	Z, r18
+			break;
+ 570:	16 c0       	rjmp	.+44     	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+		case WAIT2:
+			PORTB = 0x01;
+ 572:	85 e2       	ldi	r24, 0x25	; 37
+ 574:	90 e0       	ldi	r25, 0x00	; 0
+ 576:	21 e0       	ldi	r18, 0x01	; 1
+ 578:	fc 01       	movw	r30, r24
+ 57a:	20 83       	st	Z, r18
+			PORTC = 0x06;
+ 57c:	88 e2       	ldi	r24, 0x28	; 40
+ 57e:	90 e0       	ldi	r25, 0x00	; 0
+ 580:	26 e0       	ldi	r18, 0x06	; 6
+ 582:	fc 01       	movw	r30, r24
+ 584:	20 83       	st	Z, r18
+		case LOCK2:
+			PORTB = 0x01;
+ 586:	85 e2       	ldi	r24, 0x25	; 37
+ 588:	90 e0       	ldi	r25, 0x00	; 0
+ 58a:	21 e0       	ldi	r18, 0x01	; 1
+ 58c:	fc 01       	movw	r30, r24
+ 58e:	20 83       	st	Z, r18
+			PORTC = 0x07;
+ 590:	88 e2       	ldi	r24, 0x28	; 40
+ 592:	90 e0       	ldi	r25, 0x00	; 0
+ 594:	27 e0       	ldi	r18, 0x07	; 7
+ 596:	fc 01       	movw	r30, r24
+ 598:	20 83       	st	Z, r18
+			break;
+ 59a:	01 c0       	rjmp	.+2      	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+		default:
+			break;
+ 59c:	00 00       	nop
+		
+		
+	}
+	
+}
+ 59e:	00 00       	nop
+ 5a0:	df 91       	pop	r29
+ 5a2:	cf 91       	pop	r28
+ 5a4:	08 95       	ret
+
+000005a6 <__tablejump2__>:
+ 5a6:	ee 0f       	add	r30, r30
+ 5a8:	ff 1f       	adc	r31, r31
+ 5aa:	00 24       	eor	r0, r0
+ 5ac:	00 1c       	adc	r0, r0
+ 5ae:	0b be       	out	0x3b, r0	; 59
+ 5b0:	07 90       	elpm	r0, Z+
+ 5b2:	f6 91       	elpm	r31, Z
+ 5b4:	e0 2d       	mov	r30, r0
+ 5b6:	09 94       	ijmp
+
+000005b8 <_exit>:
+ 5b8:	f8 94       	cli
+
+000005ba <__stop_program>:
+ 5ba:	ff cf       	rjmp	.-2      	; 0x5ba <__stop_program>
