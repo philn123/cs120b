@@ -1,0 +1,373 @@
+
+pnguy092_lab8_part4.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  000001ce  00000262  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001ce  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000004  00800102  00800102  00000264  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000264  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000294  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000028  00000000  00000000  000002d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000885  00000000  00000000  000002fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000007c4  00000000  00000000  00000b81  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000002ce  00000000  00000000  00001345  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000034  00000000  00000000  00001614  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000421  00000000  00000000  00001648  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  00001a69  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	60 c0       	rjmp	.+192    	; 0xc6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	5e c0       	rjmp	.+188    	; 0xc6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	5c c0       	rjmp	.+184    	; 0xc6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	5a c0       	rjmp	.+180    	; 0xc6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	58 c0       	rjmp	.+176    	; 0xc6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	56 c0       	rjmp	.+172    	; 0xc6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	54 c0       	rjmp	.+168    	; 0xc6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	52 c0       	rjmp	.+164    	; 0xc6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	50 c0       	rjmp	.+160    	; 0xc6 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	4e c0       	rjmp	.+156    	; 0xc6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	4c c0       	rjmp	.+152    	; 0xc6 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	4a c0       	rjmp	.+148    	; 0xc6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	48 c0       	rjmp	.+144    	; 0xc6 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	46 c0       	rjmp	.+140    	; 0xc6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	44 c0       	rjmp	.+136    	; 0xc6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	42 c0       	rjmp	.+132    	; 0xc6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	40 c0       	rjmp	.+128    	; 0xc6 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	3e c0       	rjmp	.+124    	; 0xc6 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	3c c0       	rjmp	.+120    	; 0xc6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	3a c0       	rjmp	.+116    	; 0xc6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	38 c0       	rjmp	.+112    	; 0xc6 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	36 c0       	rjmp	.+108    	; 0xc6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	34 c0       	rjmp	.+104    	; 0xc6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	32 c0       	rjmp	.+100    	; 0xc6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	30 c0       	rjmp	.+96     	; 0xc6 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	2e c0       	rjmp	.+92     	; 0xc6 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	2c c0       	rjmp	.+88     	; 0xc6 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	2a c0       	rjmp	.+84     	; 0xc6 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	28 c0       	rjmp	.+80     	; 0xc6 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	26 c0       	rjmp	.+76     	; 0xc6 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	24 c0       	rjmp	.+72     	; 0xc6 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	22 c0       	rjmp	.+68     	; 0xc6 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	20 c0       	rjmp	.+64     	; 0xc6 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	1e c0       	rjmp	.+60     	; 0xc6 <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e4       	ldi	r29, 0x40	; 64
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ee ec       	ldi	r30, 0xCE	; 206
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a2 30       	cpi	r26, 0x02	; 2
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	a2 e0       	ldi	r26, 0x02	; 2
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a6 30       	cpi	r26, 0x06	; 6
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	08 d0       	rcall	.+16     	; 0xd4 <main>
+  c4:	82 c0       	rjmp	.+260    	; 0x1ca <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
+
+000000c8 <ADC_init>:
+ */ 
+
+#include <avr/io.h>
+
+void ADC_init () {
+    ADCSRA |= (1 << ADEN ) | (1 << ADSC ) | (1 << ADATE );
+  c8:	ea e7       	ldi	r30, 0x7A	; 122
+  ca:	f0 e0       	ldi	r31, 0x00	; 0
+  cc:	80 81       	ld	r24, Z
+  ce:	80 6e       	ori	r24, 0xE0	; 224
+  d0:	80 83       	st	Z, r24
+  d2:	08 95       	ret
+
+000000d4 <main>:
+unsigned short threshold = 0x00;
+unsigned short max = 0x57;
+
+int main(void)
+{
+    DDRA = 0x00; PORTA = 0xFF;
+  d4:	11 b8       	out	0x01, r1	; 1
+  d6:	8f ef       	ldi	r24, 0xFF	; 255
+  d8:	82 b9       	out	0x02, r24	; 2
+    DDRB = 0xFF; PORTB = 0x00;
+  da:	84 b9       	out	0x04, r24	; 4
+  dc:	15 b8       	out	0x05, r1	; 5
+    threshold = (max / 8);
+  de:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+  e2:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__data_start+0x1>
+  e6:	96 95       	lsr	r25
+  e8:	87 95       	ror	r24
+  ea:	96 95       	lsr	r25
+  ec:	87 95       	ror	r24
+  ee:	96 95       	lsr	r25
+  f0:	87 95       	ror	r24
+  f2:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <__data_end+0x1>
+  f6:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+    
+    ADC_init();
+  fa:	e6 df       	rcall	.-52     	; 0xc8 <ADC_init>
+    /* Replace with your application code */
+    while (1) 
+    {
+        adc = ADC;
+  fc:	e8 e7       	ldi	r30, 0x78	; 120
+  fe:	f0 e0       	ldi	r31, 0x00	; 0
+        }
+        else if(adc < threshold*7){
+            PORTB = 0x7F;
+        }
+        else if(adc < threshold*8){
+            PORTB = 0xFF;
+ 100:	0f ef       	ldi	r16, 0xFF	; 255
+        }
+        else if(adc < threshold*6){
+            PORTB = 0x3F;
+        }
+        else if(adc < threshold*7){
+            PORTB = 0x7F;
+ 102:	1f e7       	ldi	r17, 0x7F	; 127
+        }
+        else if(adc < threshold*5){
+            PORTB = 0x1F;
+        }
+        else if(adc < threshold*6){
+            PORTB = 0x3F;
+ 104:	df e3       	ldi	r29, 0x3F	; 63
+        }
+        else if(adc < threshold*4){
+            PORTB = 0x0F;
+        }
+        else if(adc < threshold*5){
+            PORTB = 0x1F;
+ 106:	cf e1       	ldi	r28, 0x1F	; 31
+        }
+        else if(adc < threshold*3){
+            PORTB = 0x07;
+        }
+        else if(adc < threshold*4){
+            PORTB = 0x0F;
+ 108:	bf e0       	ldi	r27, 0x0F	; 15
+        }
+        else if(adc < threshold*2){
+            PORTB = 0x03;
+        }
+        else if(adc < threshold*3){
+            PORTB = 0x07;
+ 10a:	a7 e0       	ldi	r26, 0x07	; 7
+        adc = ADC;
+        if(adc < threshold){
+            PORTB = 0x01;
+        }
+        else if(adc < threshold*2){
+            PORTB = 0x03;
+ 10c:	73 e0       	ldi	r23, 0x03	; 3
+    /* Replace with your application code */
+    while (1) 
+    {
+        adc = ADC;
+        if(adc < threshold){
+            PORTB = 0x01;
+ 10e:	61 e0       	ldi	r22, 0x01	; 1
+    
+    ADC_init();
+    /* Replace with your application code */
+    while (1) 
+    {
+        adc = ADC;
+ 110:	80 81       	ld	r24, Z
+ 112:	91 81       	ldd	r25, Z+1	; 0x01
+ 114:	90 93 05 01 	sts	0x0105, r25	; 0x800105 <adc+0x1>
+ 118:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <adc>
+        if(adc < threshold){
+ 11c:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <__data_end>
+ 120:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__data_end+0x1>
+ 124:	82 17       	cp	r24, r18
+ 126:	93 07       	cpc	r25, r19
+ 128:	10 f4       	brcc	.+4      	; 0x12e <main+0x5a>
+            PORTB = 0x01;
+ 12a:	65 b9       	out	0x05, r22	; 5
+ 12c:	f1 cf       	rjmp	.-30     	; 0x110 <main+0x3c>
+        }
+        else if(adc < threshold*2){
+ 12e:	a9 01       	movw	r20, r18
+ 130:	44 0f       	add	r20, r20
+ 132:	55 1f       	adc	r21, r21
+ 134:	84 17       	cp	r24, r20
+ 136:	95 07       	cpc	r25, r21
+ 138:	10 f4       	brcc	.+4      	; 0x13e <main+0x6a>
+            PORTB = 0x03;
+ 13a:	75 b9       	out	0x05, r23	; 5
+ 13c:	e9 cf       	rjmp	.-46     	; 0x110 <main+0x3c>
+        }
+        else if(adc < threshold*3){
+ 13e:	a9 01       	movw	r20, r18
+ 140:	44 0f       	add	r20, r20
+ 142:	55 1f       	adc	r21, r21
+ 144:	42 0f       	add	r20, r18
+ 146:	53 1f       	adc	r21, r19
+ 148:	84 17       	cp	r24, r20
+ 14a:	95 07       	cpc	r25, r21
+ 14c:	10 f4       	brcc	.+4      	; 0x152 <main+0x7e>
+            PORTB = 0x07;
+ 14e:	a5 b9       	out	0x05, r26	; 5
+ 150:	df cf       	rjmp	.-66     	; 0x110 <main+0x3c>
+        }
+        else if(adc < threshold*4){
+ 152:	a9 01       	movw	r20, r18
+ 154:	44 0f       	add	r20, r20
+ 156:	55 1f       	adc	r21, r21
+ 158:	44 0f       	add	r20, r20
+ 15a:	55 1f       	adc	r21, r21
+ 15c:	84 17       	cp	r24, r20
+ 15e:	95 07       	cpc	r25, r21
+ 160:	10 f4       	brcc	.+4      	; 0x166 <main+0x92>
+            PORTB = 0x0F;
+ 162:	b5 b9       	out	0x05, r27	; 5
+ 164:	d5 cf       	rjmp	.-86     	; 0x110 <main+0x3c>
+        }
+        else if(adc < threshold*5){
+ 166:	a9 01       	movw	r20, r18
+ 168:	44 0f       	add	r20, r20
+ 16a:	55 1f       	adc	r21, r21
+ 16c:	44 0f       	add	r20, r20
+ 16e:	55 1f       	adc	r21, r21
+ 170:	42 0f       	add	r20, r18
+ 172:	53 1f       	adc	r21, r19
+ 174:	84 17       	cp	r24, r20
+ 176:	95 07       	cpc	r25, r21
+ 178:	10 f4       	brcc	.+4      	; 0x17e <main+0xaa>
+            PORTB = 0x1F;
+ 17a:	c5 b9       	out	0x05, r28	; 5
+ 17c:	c9 cf       	rjmp	.-110    	; 0x110 <main+0x3c>
+        }
+        else if(adc < threshold*6){
+ 17e:	a9 01       	movw	r20, r18
+ 180:	44 0f       	add	r20, r20
+ 182:	55 1f       	adc	r21, r21
+ 184:	42 0f       	add	r20, r18
+ 186:	53 1f       	adc	r21, r19
+ 188:	44 0f       	add	r20, r20
+ 18a:	55 1f       	adc	r21, r21
+ 18c:	84 17       	cp	r24, r20
+ 18e:	95 07       	cpc	r25, r21
+ 190:	10 f4       	brcc	.+4      	; 0x196 <main+0xc2>
+            PORTB = 0x3F;
+ 192:	d5 b9       	out	0x05, r29	; 5
+ 194:	bd cf       	rjmp	.-134    	; 0x110 <main+0x3c>
+        }
+        else if(adc < threshold*7){
+ 196:	a9 01       	movw	r20, r18
+ 198:	44 0f       	add	r20, r20
+ 19a:	55 1f       	adc	r21, r21
+ 19c:	44 0f       	add	r20, r20
+ 19e:	55 1f       	adc	r21, r21
+ 1a0:	44 0f       	add	r20, r20
+ 1a2:	55 1f       	adc	r21, r21
+ 1a4:	42 1b       	sub	r20, r18
+ 1a6:	53 0b       	sbc	r21, r19
+ 1a8:	84 17       	cp	r24, r20
+ 1aa:	95 07       	cpc	r25, r21
+ 1ac:	10 f4       	brcc	.+4      	; 0x1b2 <main+0xde>
+            PORTB = 0x7F;
+ 1ae:	15 b9       	out	0x05, r17	; 5
+ 1b0:	af cf       	rjmp	.-162    	; 0x110 <main+0x3c>
+        }
+        else if(adc < threshold*8){
+ 1b2:	22 0f       	add	r18, r18
+ 1b4:	33 1f       	adc	r19, r19
+ 1b6:	22 0f       	add	r18, r18
+ 1b8:	33 1f       	adc	r19, r19
+ 1ba:	22 0f       	add	r18, r18
+ 1bc:	33 1f       	adc	r19, r19
+ 1be:	82 17       	cp	r24, r18
+ 1c0:	93 07       	cpc	r25, r19
+ 1c2:	08 f0       	brcs	.+2      	; 0x1c6 <main+0xf2>
+ 1c4:	a5 cf       	rjmp	.-182    	; 0x110 <main+0x3c>
+            PORTB = 0xFF;
+ 1c6:	05 b9       	out	0x05, r16	; 5
+ 1c8:	a3 cf       	rjmp	.-186    	; 0x110 <main+0x3c>
+
+000001ca <_exit>:
+ 1ca:	f8 94       	cli
+
+000001cc <__stop_program>:
+ 1cc:	ff cf       	rjmp	.-2      	; 0x1cc <__stop_program>
