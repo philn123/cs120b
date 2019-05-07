@@ -1,7 +1,7 @@
 /* Partner 1 Name & E-mail: Phillip Nguyen & pnguy092@ucr.edu
 * Partner 2 Name & E-mail: Fangsheng Chao & fchao002@ucr.edu
 * Lab Section: 023
-* Assignment: Lab 8 Exercise 2
+* Assignment: Lab 8 Exercise 3
 *
 *
 * I acknowledge all content contained herein, excluding template or example
