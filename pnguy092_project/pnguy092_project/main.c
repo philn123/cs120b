@@ -11,55 +11,14 @@
 #include "io.c"
 #include "scheduler.h"
 #include "timer.h"
-
+#include "shift.h"
 
 enum Menu{Menu_Init, Menu_Start, Menu_Score} state;
+enum RGB_Matrix{RGB_INIT, RGB_Test} state2;
 unsigned char menu_introduction[] = "Rhythm Game";
-
+unsigned char pic[] = {0,36,36,36,0,66,60,0};
 unsigned char score = 0;
-//custom characters
-/*
-unsigned char customChar[8] = { //left arrow
-        0b10000,
-        0b01000,
-        0b00100,
-        0b00010,
-        0b00010,
-        0b00100,
-        0b01000,
-        0b10000
-};
-unsigned char customChar2[8] = { //right arrow
-    0b00001,
-    0b00010,
-    0b00100,
-    0b01000,
-    0b00100,
-    0b00010,
-    0b00001,
-    0b00000
-};
-unsigned char customChar3[8] = { //down arrow
-    0b00100,
-    0b00100,
-    0b00100,
-    0b00100,
-    0b00100,
-    0b11111,
-    0b01110,
-    0b00100
-};
-unsigned char customChar4[8] = { //up arrow
-    0b00100,
-    0b01110,
-    0b11111,
-    0b00100,
-    0b00100,
-    0b00100,
-    0b00100,
-    0b00100
-};
-*/
+
 void Menu_Tick(){
     switch(state){
         case Menu_Init:
@@ -98,25 +57,63 @@ void Menu_Tick(){
     
 }
 
+/*
+void RGB_Matrix_Tick(){
+    switch(state2){
+        case RGB_INIT:
+            state2 = RGB_Test;
+            break;
+        case RGB_Test:
+            state2 = RGB_Test;
+            break;
+    }
+    switch(state2){
+        case RGB_INIT:
+            break;
+        case RGB_Test:
+            for(unsigned i = 0; i < 8; i++){
+                Shift_transmit_data(pic[i]);
+                Shift_transmit_data(255 >> i);
+            }
+            
+    }
+}
 
-
+*/
 
 int main(void)
 {
     /* Replace with your application code */
     DDRA = 0xFF; PORTA = 0x00;
     DDRD = 0xFF; PORTD = 0x00;
+    DDRC = 0xFF; PORTC = 0x00;
  
  
-    TimerSet(2000);
+    TimerSet(100);
     TimerOn();
     LCD_init();
   
     score = eeprom_read_byte((uint8_t*) 4);
-
+    Shift_transmit_data(0);
+    Shift_transmit_data(255);
+    unsigned char row = 1;
     while (1) 
     {
         Menu_Tick();
+        //RGB_Matrix_Tick();
+        
+        for(unsigned i = 0; i < 8; i++){
+           
+            Shift_transmit_data(128 >> i);
+            Shift_transmit_data(~row);
+            
+            if(i == 7){
+                row++;
+            }
+            
+           
+        }
+        
         while(!TimerFlag);
         TimerFlag = 0;
     }

@@ -9,27 +9,59 @@
           
 /*-------------------------------------------------------------------------*/
 
-#define DATA_BUS PORTC		// port connected to pins 7-14 of LCD display
-#define CONTROL_BUS PORTD	// port connected to pins 4 and 6 of LCD disp.
-#define RS 6			// pin number of uC connected to pin 4 of LCD disp.
-#define E 7			// pin number of uC connected to pin 6 of LCD disp.
+#define DATA_BUS PORTD	// port connected to pins 7-14 of LCD display
+#define CONTROL_BUS PORTA	// port connected to pins 4 and 6 of LCD disp.
+#define RS 0			// pin number of uC connected to pin 4 of LCD disp.
+#define E 1			// pin number of uC connected to pin 6 of LCD disp.
 
 /*-------------------------------------------------------------------------*/
+unsigned char customChar[8] = { //left arrow
+    0b10000,
+    0b01000,
+    0b00100,
+    0b00010,
+    0b00010,
+    0b00100,
+    0b01000,
+    0b10000
+};
+unsigned char customChar2[8] = { //right arrow
+    0b00001,
+    0b00010,
+    0b00100,
+    0b01000,
+    0b00100,
+    0b00010,
+    0b00001,
+    0b00000
+};
+unsigned char customChar3[8] = { //down arrow
+    0b00100,
+    0b00100,
+    0b00100,
+    0b00100,
+    0b00100,
+    0b11111,
+    0b01110,
+    0b00100
+};
+unsigned char customChar4[8] = { //up arrow
+    0b00100,
+    0b01110,
+    0b11111,
+    0b00100,
+    0b00100,
+    0b00100,
+    0b00100,
+    0b00100
+};
+
 
 void LCD_ClearScreen(void) {
    LCD_WriteCommand(0x01);
 }
 
-void LCD_init(void) {
 
-    //wait for 100 ms.
-	delay_ms(100);
-	LCD_WriteCommand(0x38);
-	LCD_WriteCommand(0x06);
-	LCD_WriteCommand(0x0f);
-	LCD_WriteCommand(0x01);
-	delay_ms(10);						 
-}
 
 void LCD_WriteCommand (unsigned char Command) {
    CLR_BIT(CONTROL_BUS,RS);
@@ -77,4 +109,42 @@ void delay_ms(int miliSec) //for 8 Mhz crystal
   {
    asm("nop");
   }
+}
+
+void LCD_Custom_Character (unsigned char loc, unsigned char *msg)
+{
+    unsigned char i;
+    if(loc<8)
+    {
+     LCD_WriteCommand (0x40 + (loc*8));  /* Command 0x40 and onwards forces 
+                                       the device to point CGRAM address */
+       for(i=0;i<8;i++){  /* Write 8 byte for generation of 1 character */
+           LCD_WriteData(msg[i]);  
+       }           
+    }   
+}
+
+void LCD_init(void) {
+
+    //wait for 100 ms.
+    delay_ms(100);
+    LCD_WriteCommand(0x38);
+    LCD_WriteCommand(0x06);
+    LCD_WriteCommand(0x0f);
+    LCD_WriteCommand(0x01);
+    delay_ms(10);
+    
+    
+    LCD_Cursor(6);
+    LCD_Custom_Character(0,customChar);
+    LCD_Custom_Character(1, customChar4);
+    LCD_Custom_Character(2, customChar3);
+    LCD_Custom_Character(4, customChar2);
+    LCD_WriteCommand(0x0C);
+    LCD_WriteData(0x00);
+    LCD_WriteData(0x01);
+    LCD_WriteData(0x02);
+    LCD_WriteData(0x04);
+    
+    
 }
