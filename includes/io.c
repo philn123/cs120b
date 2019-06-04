@@ -10,22 +10,13 @@
 /*-------------------------------------------------------------------------*/
 
 #define DATA_BUS PORTD	// port connected to pins 7-14 of LCD display
-#define CONTROL_BUS PORTC	// port connected to pins 4 and 6 of LCD disp.
+#define CONTROL_BUS PORTB	// port connected to pins 4 and 6 of LCD disp.
 #define RS 0			// pin number of uC connected to pin 4 of LCD disp.
 #define E 1 // pin number of uC connected to pin 6 of LCD disp.
 
 /*-------------------------------------------------------------------------*/
-unsigned char customChar[8] = { //left arrow
-    0b10000,
-    0b01000,
-    0b00100,
-    0b00010,
-    0b00010,
-    0b00100,
-    0b01000,
-    0b10000
-};
-unsigned char customChar2[8] = { //right arrow
+unsigned char customChar[8] = { 0b10000, 0b01000, 0b00100, 0b00010, 0b00010, 0b00100, 0b01000, 0b10000}; //right
+unsigned char customChar2[8] = { //left arrow
     0b00001,
     0b00010,
     0b00100,
@@ -55,7 +46,16 @@ unsigned char customChar4[8] = { //up arrow
     0b00100,
     0b00100
 };
-
+unsigned char customChar5[8] = {
+    0b00000,
+    0b00000,
+    0b11011,
+    0b10101,
+    0b10001,
+    0b01010,
+    0b00100,
+    0b00000
+}; //heart
 
 void LCD_ClearScreen(void) {
    LCD_WriteCommand(0x01);
@@ -89,6 +89,18 @@ void LCD_DisplayString( unsigned char column, const unsigned char* string) {
       LCD_WriteData(*string++);
    }
 }
+void LCD_Write_Single_Line(unsigned char column, unsigned line_num, const unsigned char* string){
+    unsigned char c = column;
+    if(line_num == 2){
+        c += 16;
+    }
+    
+    while(*string) {
+        LCD_Cursor(c++);
+        LCD_WriteData(*string++);
+    }
+    
+}
 
 void LCD_Cursor(unsigned char column) {
    if ( column < 17 ) { // 16x1 LCD: column < 9
@@ -111,6 +123,7 @@ void delay_ms(int miliSec) //for 8 Mhz crystal
   }
 }
 
+//https://openlabpro.com/guide/custom-character-lcd-pic/
 void LCD_Custom_Character (unsigned char loc, unsigned char *msg)
 {
     unsigned char i;
@@ -122,6 +135,7 @@ void LCD_Custom_Character (unsigned char loc, unsigned char *msg)
            LCD_WriteData(msg[i]);  
        }           
     }   
+    LCD_WriteCommand(0x80);
 }
 
 void LCD_init(void) {
@@ -134,17 +148,33 @@ void LCD_init(void) {
     LCD_WriteCommand(0x01);
     delay_ms(10);
     
-    
-    LCD_Cursor(6);
-    LCD_Custom_Character(0,customChar);
-    LCD_Custom_Character(1, customChar4);
-    LCD_Custom_Character(2, customChar3);
-    LCD_Custom_Character(4, customChar2);
-    LCD_WriteCommand(0x0C);
-    LCD_WriteData(0x00);
-    LCD_WriteData(0x01);
-    LCD_WriteData(0x02);
-    LCD_WriteData(0x04);
-    
-    
+    LCD_Custom_Character(0,customChar); //right
+    LCD_Custom_Character(1, customChar2); //left
+    LCD_Custom_Character(2, customChar3); //down
+    LCD_Custom_Character(4, customChar4); //up
+    LCD_Custom_Character(5, customChar5); //heart
+   
+}
+void LCD_Game_Menu(){
+     LCD_WriteCommand(0x0C); //erase cursor
+     
+     //building custom characters
+     LCD_Cursor(1);
+     LCD_WriteData(0x05); //heart
+     
+     LCD_Cursor(6);
+     //arrows
+     LCD_WriteData(0x01); 
+     LCD_WriteData(0x02);
+     LCD_WriteData(0x04);
+     LCD_WriteData(0x00);
+     
+     LCD_Cursor(16);
+     LCD_WriteData(0x05);
+     
+     //Text
+     LCD_Write_Single_Line(1, 2, "Press - to start");
+     LCD_Cursor(23);
+     LCD_WriteData(0x04);
+     
 }

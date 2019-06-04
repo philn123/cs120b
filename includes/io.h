@@ -9,6 +9,8 @@ void LCD_DisplayString(unsigned char column ,const unsigned char *string);
 void delay_ms(int miliSec);
 
 //custom functions
-void LCD_Custom_Character (unsigned char loc, unsigned char *msg);
+void LCD_Custom_Character (unsigned char loc, unsigned char *msg); //builds characters
+void LCD_Write_Single_Line(unsigned char column, unsigned line_num, const unsigned char* string); //displays strings on one line
+void LCD_Game_Menu(); //initializes main menu
 #endif
 

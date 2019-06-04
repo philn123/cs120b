@@ -3,13 +3,6 @@
 
 #include "io.h"
 
-
-//BIT OPERATIONS
-
-//#define GET_BIT(p,i) ((p) & (1 << (i)))
-
-
-
 #define DATA 2		//Data pin location
 #define SHIFT 3	//Shift Clock pin location
 #define STORE 4	//Store Clock pin location
@@ -22,7 +15,7 @@ unsigned char Clear_Bit(unsigned char output, unsigned char in){
     return (output & ~(1 << in));
 } 
 
-void ShRegInit() {
+void Shift_Init() {
     DDRC = Set_Bit(DDRC, DATA);
     DDRC = Set_Bit(DDRC, SHIFT);
     DDRC = Set_Bit(DDRC, STORE);

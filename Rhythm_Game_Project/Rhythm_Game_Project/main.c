@@ -26,16 +26,20 @@ int main(void)
     
     //Initialize LCD and Matrix
     LCD_init();
+    LCD_Game_Menu();
     Shift_Init();
-    
+        
     Shift_transmit_data(255);
     Shift_transmit_data(0);
-    
+   
     
     while (1) 
     {
-        continue;
-    }
+        for(unsigned char i = 0; i < 8; i++){
+            Shift_transmit_data(128 >> i);
+            delay_ms(500);
+        }
+    }        
     return 0;
 }
 

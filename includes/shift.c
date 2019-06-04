@@ -2,71 +2,68 @@
 #include <util/delay.h>
 
 #include "io.h"
-
+#include <util/delay_basic.h>
 
 //BIT OPERATIONS
+#define SET_BIT(p,i) ((p) |= (1 << (i)))
+#define CLR_BIT(p,i) ((p) &= ~(1 << (i)))
+#define GET_BIT(p,i) ((p) & (1 << (i)))
 
-//#define GET_BIT(p,i) ((p) & (1 << (i)))
+//CONNECTIONS
+#define SHIFT_PORT	PORTC
+#define SHIFT_DDR	DDRC
+
+#define DATA_LINE 2	//Data pin location
+
+#define SHIFT_LINE 3	//Shift Clock pin location 
+#define STORE_LINE 4	//Store Clock pin location
 
 
-
-#define DATA 2		//Data pin location
-#define SHIFT 3	//Shift Clock pin location
-#define STORE 4	//Store Clock pin location
-
-
-unsigned char Set_Bit(unsigned char output, unsigned char in){
-    return (output | (1 << in));
-}
-unsigned char Clear_Bit(unsigned char output, unsigned char in){
-    return (output & ~(1 << in));
-}
-
+//Initialize Shift Register
 void ShRegInit() {
-    DDRC = Set_Bit(DDRC, DATA);
-    DDRC = Set_Bit(DDRC, SHIFT);
-    DDRC = Set_Bit(DDRC, STORE);
+	// Data, Shift clock, Store Clock output
+	SET_BIT(SHIFT_DDR,SHIFT_LINE);
+	SET_BIT(SHIFT_DDR,STORE_LINE);
+	SET_BIT(SHIFT_DDR,DATA_LINE);
 }
 
 //Set Data line high
-void Shift_Data_High() {
-    PORTC = Set_Bit(PORTC, DATA);
+void ShRegDataHigh() {
+	SET_BIT(SHIFT_PORT,DATA_LINE);
 }
 
 //Set Data line low
-void Shift_Data_Low() {
-    PORTC = Clear_Bit(PORTC, DATA);
+void ShRegDataLow() {
+	CLR_BIT(SHIFT_PORT,DATA_LINE);
 }
 
 //Pulse Shift Clock
-void Shift_Pulse() {
-    PORTC = Set_Bit(PORTC, SHIFT);
-    PORTC = Clear_Bit(PORTC, SHIFT);
+void ShRegPulse() {
+	SET_BIT(SHIFT_PORT,SHIFT_LINE);
+	CLR_BIT(SHIFT_PORT,SHIFT_LINE);
 }
 
 //Pulse Store Clock
-void Shift_Store() {
-    PORTC = Set_Bit(PORTC, STORE);
-    //SET_BIT(SHIFT_PORT,STORE_LINE);
-    _delay_loop_2(1);
+void ShRegLatch() {
+   SET_BIT(SHIFT_PORT,STORE_LINE);
+   _delay_loop_1(1);
 
-    //CLR_BIT(SHIFT_PORT,STORE_LINE);
-    PORTC = Clear_Bit(PORTC, STORE);
-    _delay_loop_2(1);
+   CLR_BIT(SHIFT_PORT,STORE_LINE);
+   _delay_loop_1(1);
 }
 
 
-void Shift_transmit_data(unsigned char data) {
-    for(unsigned char i=0;i<8;i++) {
-        if(data & 0x80) {
-            Shift_Data_High();
-            } else {
-            Shift_Data_Low();
-        }
+void ShRegWrite(unsigned char data) {
+	for(unsigned char i=0;i<8;i++) {
+		if(data & 0x80) {
+			ShRegDataHigh();
+		} else {
+			ShRegDataLow();
+		}
 
-        Shift_Pulse();
-        data=data << 1;
-    }
+		ShRegPulse();
+		data=data<<1;
+	}
 
-    Shift_Store();
+	ShRegLatch();
 }
