@@ -31,7 +31,7 @@ enum LFT{LFT_INIT, LFT_WAIT};
 enum RGHT{RGHT_INIT, RGHT_WAIT};
 enum UPP{UP_INIT, UP_WAIT};
 enum DOWNN{DOWN_INIT, DOWN_WAIT};
-enum LCD_Menu {LCD_Menu_Init, LCD_Menu_Start, LCD_Menu_Songs};
+enum LCD_Menu {LCD_Menu_Init, LCD_Menu_Start, LCD_Menu_Songs, LCD_Menu_Zense};
 enum RGB_Matrix{RGB_INIT, RGB_MENU};
     
 //Tick Functions
@@ -47,8 +47,14 @@ const unsigned char tasksNum = 6;
 task tasks[6];
 
 //global variables
-//unsigned char pic[8] = {4, 12, 24, 24, 24, 24, 12, 4};
-unsigned char pic[8] = {3, 0, 0, 0, 0, 0, 0, 0};
+unsigned char pic[8] = {4, 12, 24, 24, 24, 24, 12, 4};
+//unsigned char pic[8] = {3, 0, 0, 0, 0, 0, 0, 0};
+    
+unsigned long current_score = 0;
+unsigned long zen_high_score = 0;    
+    
+    
+
 int main(void)
 {
     //LCD PORTS & RGB MATRIX
@@ -67,6 +73,8 @@ int main(void)
     Shift_Init();   
     Shift_transmit_data(0);
     Shift_transmit_data(255);
+    zen_high_score = eeprom_read_byte((uint8_t*) 1);
+    
     
     //Task Code
     unsigned char tasks_increment = 0;
@@ -272,10 +280,25 @@ int LCD_Menu_Tick(int state){
                 }            
                 break;
             }
+            else if(!DOWN && !UP && !LEFT && RIGHT){
+                if(!current_song_choice){
+                    LCD_ClearScreen();
+                    state = LCD_Menu_Zense;
+                }
+                else{
+                    LCD_ClearScreen();
+                    state = LCD_Menu_Start;
+                    
+                }
+                break;
+            }
             else{
                 state = LCD_Menu_Songs;
                 break;
-            }               
+            }    
+        case LCD_Menu_Zense:      
+            state = LCD_Menu_Zense;
+            break;     
     }
     switch(state){ //actions
         case LCD_Menu_Init:
@@ -298,6 +321,14 @@ int LCD_Menu_Tick(int state){
             LCD_Write_Single_Line(2,1, "ZEN ZEN ZENSE");
             LCD_Write_Single_Line(2,2, "NO");
             break;
+        case LCD_Menu_Zense:
+            LCD_Write_Single_Line(1,1, "Press - to play");
+            LCD_Cursor(7);
+            LCD_WriteData(0x00);
+            LCD_Write_Single_Line(1,2, "High Score:");
+            LCD_Cursor(28);
+            LCD_WriteData(current_score + '0');
+            break;
         
         
     }
@@ -318,7 +349,7 @@ int RGB_Matrix_Tick(int state){
         case RGB_INIT:
             break;
         case RGB_MENU:
-            /*if(LEFT || RIGHT || UP || DOWN){
+            if(LEFT || RIGHT || UP || DOWN){
                 for(unsigned char i = 0; i < 8; i++){
                     Shift_transmit_data(128 >> i);
                     Shift_transmit_data(~pic[i]);
@@ -327,17 +358,20 @@ int RGB_Matrix_Tick(int state){
             }
             Shift_transmit_data(0);
             Shift_transmit_data(0);
-            */
-            for(unsigned char i = 0; i < 8; i++){
-                Shift_transmit_data(128 >> i);
-                Shift_transmit_data(~pic[i]);
-                delay_ms(5);
-            }
-            for(unsigned char k = 0; k < 8; k++){
-                pic[k] <<= 1;
-            }
+            
             break;
     }
     
     return state;
 }
+
+/* TEST CODE
+for(unsigned char i = 0; i < 8; i++){
+    Shift_transmit_data(128 >> i);
+    Shift_transmit_data(~pic[i]);
+    delay_ms(5);
+}
+for(unsigned char k = 0; k < 8; k++){
+    pic[k] <<= 1;
+}
+*/
