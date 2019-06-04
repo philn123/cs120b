@@ -181,9 +181,9 @@ void LCD_Game_Menu(){
      LCD_Cursor(16);
      LCD_WriteData(0x05);
      
-     //Text
      LCD_Write_Single_Line(1, 2, "Press - to start");
+     
      LCD_Cursor(23);
      LCD_WriteData(0x06); //arrow marker
-     
+     LCD_WriteCommand(0x0C); 
 }
