@@ -16,11 +16,11 @@
 
 
 unsigned char Set_Bit(unsigned char output, unsigned char in){
-    return (output | (1 << in));   
+    return (output | (1 << in));
 }
 unsigned char Clear_Bit(unsigned char output, unsigned char in){
     return (output & ~(1 << in));
-} 
+}
 
 void ShRegInit() {
     DDRC = Set_Bit(DDRC, DATA);
