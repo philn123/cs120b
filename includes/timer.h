@@ -8,8 +8,14 @@
 #define TIMER_H
 
 #include <avr/interrupt.h>
+#include "scheduler.h"
 
 volatile unsigned char TimerFlag = 0; // TimerISR() sets this to 1. C programmer should clear to 0.
+
+//https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/
+extern const unsigned long tasksPeriodGCD;
+extern const unsigned char tasksNum;
+extern task tasks[];
 
 // Internal variables for mapping AVR's ISR to our cleaner TimerISR model.
 unsigned long _avr_timer_M = 1; // Start count from here, down to 0. Default 1ms
@@ -54,6 +60,16 @@ void TimerOff() {
 
 void TimerISR() {
 	TimerFlag = 1;
+    
+    unsigned char i;
+    for (i = 0; i < tasksNum; ++i) { // Heart of the scheduler code
+        if ( tasks[i].elapsedTime >= tasks[i].period ) { // Ready
+            tasks[i].state = tasks[i].TickFct(tasks[i].state);
+            tasks[i].elapsedTime = 0;
+        }
+        tasks[i].elapsedTime += tasksPeriodGCD;
+    }
+    
 }
 
 // In our approach, the C programmer does not touch this ISR, but rather TimerISR()

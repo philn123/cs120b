@@ -56,7 +56,16 @@ unsigned char customChar5[8] = {
     0b00100,
     0b00000
 }; //heart
-
+unsigned char customChar6[8] = {
+    0b00100,
+    0b00010,
+    0b11111,
+    0b00000,
+    0b11111,
+    0b01000,
+    0b00100,
+    0b00000
+};
 void LCD_ClearScreen(void) {
    LCD_WriteCommand(0x01);
 }
@@ -153,7 +162,7 @@ void LCD_init(void) {
     LCD_Custom_Character(2, customChar3); //down
     LCD_Custom_Character(4, customChar4); //up
     LCD_Custom_Character(5, customChar5); //heart
-   
+    LCD_Custom_Character(6, customChar6); //left and right arrow
 }
 void LCD_Game_Menu(){
      LCD_WriteCommand(0x0C); //erase cursor
@@ -175,6 +184,6 @@ void LCD_Game_Menu(){
      //Text
      LCD_Write_Single_Line(1, 2, "Press - to start");
      LCD_Cursor(23);
-     LCD_WriteData(0x04);
+     LCD_WriteData(0x06); //arrow marker
      
 }
