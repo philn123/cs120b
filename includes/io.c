@@ -185,5 +185,4 @@ void LCD_Game_Menu(){
      
      LCD_Cursor(23);
      LCD_WriteData(0x06); //arrow marker
-     LCD_WriteCommand(0x0C); 
 }
